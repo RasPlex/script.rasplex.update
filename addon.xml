@@ -4,7 +4,7 @@
 	   version="0.1.0"
 	   provider-name="a_wein">
   <requires>
-  	<import addon="os.openelec.tv" version="@OS_VERSION@"/>
+  	<import addon="os.openelec.tv"/>
   	<import addon="xbmc.python" version="2.0"/>
   </requires>
   <extension point="xbmc.python.script" library="default.py" />
