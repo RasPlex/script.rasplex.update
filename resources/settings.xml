@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="30100">
+
+		<setting label="30110" type="lsep"/>
+		<setting type="sep"/>
+
+		<setting label="30111" type="select" id="VERSION" values="current|bleeding" default="current"/>
+		
+		
+		<setting label="30190" type="lsep"/>
+		<setting type="sep"/>
+		
+		<setting label="30199" type="action" action="RunScript($CWD/resources/lib/update.py)" option="close"/>
+
+	</category>
+</settings>

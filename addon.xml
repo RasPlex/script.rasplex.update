@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.rasplex.update"
+	   name="RasPlex updater"
+	   version="0.1.0"
+	   provider-name="a_wein">
+  <requires>
+  	<import addon="os.openelec.tv" version="@OS_VERSION@"/>
+  	<import addon="xbmc.python" version="2.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py" />
+  <extension point="xbmc.addon.metadata">
+<!--	<platform>RPi</platform>-->
+	<summary lang="en">Update RasPlex</summary>
+	<description lang="en">Update RasPlex without loosing your settings from within PlexHT</description>
+  </extension>
+</addon>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+ 
+  <string id="30100">RasPlex Updater</string>
+  
+  <string id="30110">Options</string>
+  <string id="30111">Select version</string>
+  
+  <string id="30190">Run Updater</string>
+  <string id="30199">Update now</string>
+
+
+</strings>
