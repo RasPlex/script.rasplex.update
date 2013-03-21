@@ -155,7 +155,7 @@ if (__name__ == "__main__"):
 	versionSetting = __addon__.getSetting('VERSION')
 	curr_version=""
 	with open ("/etc/version", "r") as versionfile:
-		curr_version=versionfile.read()
+		curr_version=versionfile.read().strip()
 	
 	try:
 		version = SourceForge.versionForName(versionSetting)
@@ -164,15 +164,16 @@ if (__name__ == "__main__"):
 		if curr_version == version:
 			xbmcgui.Dialog().ok(__addonname__, "Already at version %s" % version)
 		
-		showNotification("Updating to version %s" % version)
-
-		url = SourceForge.downloadURLForVersion(version)
+		else:
+			showNotification("Updating to version %s" % version)
 	
-		Updater.update(url)
-		showNotification("Update prepared sucessfully. Please reboot to install.")
-		ret = xbmcgui.Dialog().yesno(__addonname__, "Update prepared sucessfully", "A reboot is required to finish the installation.", "Reboot now?")
-		if ret:
-			xbmc.executebuiltin('Reboot')
+			url = SourceForge.downloadURLForVersion(version)
+		
+			Updater.update(url)
+			showNotification("Update prepared sucessfully. Please reboot to install.")
+			ret = xbmcgui.Dialog().yesno(__addonname__, "Update prepared sucessfully", "A reboot is required to finish the installation.", "Reboot now?")
+			if ret:
+				xbmc.executebuiltin('Reboot')
 		
 	except UpdateError, e:	
 		showNotification("Update failed: %s" % e)
