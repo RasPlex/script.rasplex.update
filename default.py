@@ -17,13 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with RasPlex Updater. If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import sys
 import xbmcaddon
-
-__scriptname__ = "Update RasPlex Settings Dialog"
-__author__ = "a_wein"
-__version__ = "0.1.0"
 
 __addon__      = xbmcaddon.Addon(id='script.rasplex.update')
 __language__   = __addon__.getLocalizedString
