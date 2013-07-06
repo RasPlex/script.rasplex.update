@@ -89,6 +89,7 @@ class SourceForge(object):
 class Updater(object):
 		
 	install_dir = "/storage/.update"
+	update_archive = "/storage/.plexht/temp/update.tar.gz"
 		
 	@staticmethod
 	def _download(url):
@@ -105,7 +106,7 @@ class Updater(object):
 				showNotification("Download status: %d%%" % percent)
 
 		showNotification("Starting download")		
-		archive,m = urllib.urlretrieve(url, reporthook=__reportProgress)
+		archive,m = urllib.urlretrieve(url, filename=Updater.update_archive, reporthook=__reportProgress)
 		if os.path.isfile(archive):
 			return archive
 		else:
@@ -135,6 +136,8 @@ class Updater(object):
 		Update to version given by url.
 		Rasies UpdateError on error
 		'''
+		if os.path.isfile(Updater.update_archive):
+			os.remove(Updater.update_archive)
 		archive = Updater._download(url)
 		print archive
 		if not archive:
@@ -145,6 +148,8 @@ class Updater(object):
 			os.mkdir(Updater.install_dir)
 
 		Updater._extract(archive)
+		if os.path.isfile(Updater.update_archive):
+			os.remove(Updater.update_archive)
 
 
 if (__name__ == "__main__"):
